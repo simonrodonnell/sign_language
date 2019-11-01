@@ -106,4 +106,63 @@ db.letters.insertMany([
    letter: "z",
    url: "https://media.spreadthesign.com/image/500/alphabet-letter-533-1.jpg"
  }
-])
+]);
+
+db.phrases.insertMany([
+  {
+    phrase: "Hello",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/4021.mp4"
+  },
+  {
+    phrase: "Programmer",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/21789.mp4"
+  },
+  {
+    phrase: "Bye Bye",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/133549.mp4"
+  },
+  {
+    phrase: "Happy Birthday",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/466591.mp4"
+  },
+  {
+    phrase: "How are you?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/6149.mp4"
+  },
+  {
+    phrase: "Where is the restroom?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/150958.mp4"
+  },
+  {
+    phrase: "How old are you?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/26749.mp4"
+  },
+  {
+    phrase: "How much is it?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/33154.mp4"
+  },
+  {
+    phrase: "What would you recommend?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/150904.mp4"
+  },
+  {
+    phrase: "Would you write it please?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/128558.mp4"
+  },
+  {
+    phrase: "I would like a haircut",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/295499.mp4"
+  },
+  {
+    phrase: "Have you eaten?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/105788.mp4"
+  },
+  {
+    phrase: "Hacker",
+    videoUrl: "https://media.signbsl.com/videos/ict/mp4/171_hacker.mp4"
+  },
+  {
+    phrase: "I have lost my glasses",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/110290.mp4"
+  }
+]);
