@@ -6,7 +6,7 @@ export default {
     return fetch(phrases_baseURL)
     .then(res => res.json())
   },
-  getAlphabet(){
+  getLetters(){
     return fetch(letters_baseURL)
     .then(res => res.json())
   },
