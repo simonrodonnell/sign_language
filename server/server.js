@@ -16,6 +16,9 @@ MongoClient.connect('mongodb://localhost:27017')
   const lettersCollection = db.collection('letters');
   const lettersRouter = createRouter(lettersCollection);
   app.use('/api/letters', lettersRouter);
+  const phrasesCollection = db.collection('phrases');
+  const phrasesRouter = createRouter(phrasesCollection);
+  app.use('/api/phrases', phrasesRouter);
 })
 .catch(console.err);
 

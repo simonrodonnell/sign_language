@@ -57,10 +57,10 @@ export default {
     },
     convertText() {
       let letterArray = this.textToSignLanguage.split("");
-      // console.log(letterArray);
-      return letterArray.every((Arrayletter) => {
-
-      })
+      console.log(letterArray);
+      // return letterArray.every((Arrayletter) => {
+      //
+      // })
     }
   },
   components: {
