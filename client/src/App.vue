@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <img src="../public/bsl_logo.png" alt="bsl_logo">
     <input v-on:keyup="searchForLetter" type="text" v-model="textToSignLanguage">
     <button @click="convertText">Convert String to Sign Language</button>
     <div v-if="imageURL" id="imageDisplay">
