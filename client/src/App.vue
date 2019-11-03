@@ -8,11 +8,11 @@
     <!-- <div v-for="letter in letters">
     <img :src="letter.url" :alt="letter.letter">
   </div> -->
-  <div v-for="phrase in phrases">
+  <!-- <div v-for="phrase in phrases">
     <p>{{phrase.phrase}}</p>
     <video :src="phrase.videoUrl" controls></video>
     <br>
-  </div>
+  </div> -->
 </div>
 </template>
 
