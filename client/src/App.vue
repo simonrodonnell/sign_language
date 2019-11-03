@@ -1,5 +1,13 @@
 <template>
   <div id="app">
+    <nav>
+      <ul>
+        <li <a href="home">Home</a></li>
+        <li <a href="phrases">Phrases</a></li>
+        <li <a href="alphabet">Alphabet</a></li>
+      </ul>
+    </nav>
+    <p>Hello this is sign language website name blah blah blah</p>
     <input v-on:keyup="searchForLetter" type="text" v-model="textToSignLanguage">
     <button @click="convertText">Convert String to Sign Language</button>
     <div v-if="imageURL" id="imageDisplay">
@@ -9,10 +17,11 @@
     <img :src="letter.url" :alt="letter.letter">
   </div> -->
   <!-- <div v-for="phrase in phrases">
-    <p>{{phrase.phrase}}</p>
-    <video :src="phrase.videoUrl" controls></video>
-    <br>
-  </div> -->
+  <p>{{phrase.phrase}}</p>
+  <video :src="phrase.videoUrl" controls></video>
+  <br>
+</div> -->
+  <p>{{this.facts[Math.floor(Math.random()*facts.length)]}}</p>
 </div>
 </template>
 
@@ -27,7 +36,13 @@ export default {
       letters: [],
       phrases: [],
       textToSignLanguage: "",
-      imageURL: ""
+      imageURL: "",
+      facts: ["There are about 300 sign languages in use around the world.",
+      "British sign language is the fourth most used language in the UK with over 125,000 adults using it.",
+      "Sign language uses different grammar structures than spoken language.",
+      "The first written record of sign language being used is from the 5th century BC in Ancient Greece.",
+      "The first ever deaf school was started in Paris in 1760.",
+      "Deaf and blind people can communicate with each other by using tactile signing, which is different from sign language."]
     }
   },
   mounted(){
