@@ -110,6 +110,14 @@ db.letters.insertMany([
 
 db.phrases.insertMany([
   {
+    phrase: "Yes",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/4121.mp4"
+  },
+  {
+    phrase: "No",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/4133.mp4"
+  },
+  {
     phrase: "Hello",
     videoUrl: "https://media.spreadthesign.com/video/mp4/1/4021.mp4"
   },
@@ -194,8 +202,23 @@ db.phrases.insertMany([
     videoUrl: "https://media.spreadthesign.com/video/mp4/1/19280.mp4"
   },
   {
-    phrase: "Home for the holidays.",
+    phrase: "Home for the holidays",
     videoUrl: "https://media.spreadthesign.com/video/mp4/1/110071.mp4"
   },
-
+  {
+    phrase: "What time does the bus arrive?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/150898.mp4"
+  },
+  {
+    phrase: "Take me to the airport, please",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/300363.mp4"
+  },
+  {
+    phrase: "Can I offer you anything to drink?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/298273.mp4"
+  },
+  {
+    phrase: "Can I play, too?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/298276.mp4"
+  }
 ]);
