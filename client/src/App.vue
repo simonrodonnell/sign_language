@@ -24,7 +24,7 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import SignLanguageService from './services/sign_language_service';
-import LettersGrid from "./components/LettersGrid";
+import LettersGrid from './components/LettersGrid';
 
 export default {
   name: 'app',
