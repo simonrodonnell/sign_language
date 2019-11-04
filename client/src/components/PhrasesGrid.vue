@@ -51,9 +51,16 @@ export default {
 
 #phrases-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   width: 25%;
+  flex-wrap: wrap;
+  height: 65px;
+  column-width: 50px;
+  overflow: auto;
+  columns: 2;
+  flex: 0, 50%;
+  flex-grow: 0;
 }
 
 #display-video {

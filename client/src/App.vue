@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <img id="bsl-logo" src="../public/bsl_logo.png" alt="bsl_logo">
-    <p id="intro-text">Hello this is sign language website name blah blah blah</p>
+    <p id="intro-text">CODECLAN E34'S SIGN LANGUAGE LEARNING RESOURCE</p>
     <div id="components-wrapper">
       <nav>
         <ul>
           <li :class="(selectedComponent === 'home') ? 'active' : 'passive' " @click="selectComponent('home')" >Home</li>
-          <li :class="(selectedComponent === 'phrases') ? 'active' : 'passive' " @click="selectComponent('phrases')">Phrases</li>
           <li :class="(selectedComponent === 'letters') ? 'active' : 'passive' " @click="selectComponent('letters')">Alphabet</li>
+          <li :class="(selectedComponent === 'phrases') ? 'active' : 'passive' " @click="selectComponent('phrases')">Phrases</li>
         </ul>
       </nav>
       <homepage v-if="selectedComponent === 'home' " />
@@ -153,5 +153,10 @@ nav li:hover {
 
 .passive {
   background-color: #e1fff5;
+}
+
+#intro-text {
+  font: HelveticaNeue;
+  font-weight: bold;
 }
 </style>
