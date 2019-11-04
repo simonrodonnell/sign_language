@@ -1,39 +1,29 @@
 <template>
   <div id="app">
     <img id="bsl-logo" src="../public/bsl_logo.png" alt="bsl_logo">
-    <nav>
-      <ul>
-        <li <a href="home">Home</a></li>
-        <li <a href="phrases">Phrases</a></li>
-        <li <a href="alphabet">Alphabet</a></li>
-      </ul>
-    </nav>
-    <p>Hello this is sign language website name blah blah blah</p>
-    <input v-on:keyup="searchForLetter" type="text" v-model="textToSignLanguage">
-    <button @click="convertText">Convert String to Sign Language</button>
-    <div v-if="imageURL" id="imageDisplay">
-      <img :src="imageURL" alt="">
+    <p id="intro-text">Hello this is sign language website name blah blah blah</p>
+    <div id="components-wrapper">
+      <nav>
+        <ul>
+          <li @click="selectComponent('home')" >Home</li>
+          <li @click="selectComponent('phrases')">Phrases</li>
+          <li @click="selectComponent('letters')">Alphabet</li>
+        </ul>
+      </nav>
+      <homepage v-if="selectedComponent === 'home' " />
+      <letters-grid v-if="selectedComponent === 'letters' " :letters="letters"/>
+      <phrases-grid v-if="selectedComponent === 'phrases' "  :phrases="phrases" />
     </div>
-    <letters-grid :letters="letters"/>
-    <!-- <div v-for="letter in letters">
-    <img :src="letter.url" :alt="letter.letter">
-  </div> -->
-  <!-- <div v-for="phrase in phrases">
-  <p>{{phrase.phrase}}</p>
-  <video :src="phrase.videoUrl" controls></video>
-  <br>
-</div> -->
 
-  <phrases-grid :phrases="phrases" />
-  <p>{{this.randomFact}}</p>
-</div>
+    <p id="random-fact">{{this.randomFact}}</p>
+  </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
 import SignLanguageService from './services/sign_language_service';
 import PhrasesGrid from './components/PhrasesGrid.vue';
 import LettersGrid from "./components/LettersGrid";
+import Homepage from "./components/Homepage.vue";
 
 export default {
   name: 'app',
@@ -41,6 +31,7 @@ export default {
     return {
       letters: [],
       phrases: [],
+      selectedComponent: "home",
       textToSignLanguage: "",
       imageURL: "",
       randomFact: "",
@@ -66,7 +57,6 @@ export default {
       .then(phrases => this.phrases = phrases);
     },
     searchForLetter() {
-      // let array = this.textToSignLanguage.split("");
       let lastIndex = this.textToSignLanguage.length - 1
       let search = this.textToSignLanguage[lastIndex]
       if (search === " ") {
@@ -80,36 +70,84 @@ export default {
         this.imageURL = result.url
       }
     },
+    selectComponent(component) {
+      this.selectedComponent = component
+    },
     convertText() {
       let letterArray = this.textToSignLanguage.split("");
       console.log(letterArray);
-      // return letterArray.every((Arrayletter) => {
-      //
-      // })
     },
-    // randomFactGen(){
-    //   this.randomFact = this.facts[Math.floor(Math.random()*facts.length)]
-    // },
   },
   components: {
     "letters-grid": LettersGrid,
-      "phrases-grid": PhrasesGrid
-    // HelloWorld
+    "phrases-grid": PhrasesGrid,
+    "homepage": Homepage
   }
 }
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #effff9;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 5px;
+}
+
+#components-wrapper {
+  margin: auto;
+  max-height: 80%;
+  width: 60%;
+  background-color: #e1ecff;
+  border: 2px solid #2c3e50;
+  border-radius: 5px;
+  padding: 0 10px 10px 10px;
+}
+
+#intro-text {
+  padding: 10px
+}
+
+#random-fact {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
 }
 
 #bsl-logo {
   width: 150px;
+}
+nav {
+  margin: auto;
+  width: 60%;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+ul {
+  list-style: none;
+  background-color: #e1fff5;
+}
+
+nav li:hover {
+  background-color: #e1ecff;
+}
+
+nav li:active {
+  background-color: #e1ecff;
 }
 </style>
