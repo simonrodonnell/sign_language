@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <img id="bsl-logo" src="../public/bsl_logo.png" alt="bsl_logo">
     <nav>
       <ul>
         <li <a href="home">Home</a></li>
@@ -99,5 +100,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+#bsl-logo {
+  width: 150px;
 }
 </style>
