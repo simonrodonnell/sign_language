@@ -135,7 +135,7 @@ nav {
 
 nav li {
   display: inline-block;
-  margin: 0 10px;
+  /* margin: 0 10px; */
 }
 
 ul {
@@ -144,14 +144,17 @@ ul {
 }
 
 nav li:hover {
+  padding: 0 40px;
   background-color: #e1ecff;
 }
 
 .active {
+  padding: 0 40px;
   background-color: #e1ecff;
 }
 
 .passive {
+  padding: 0 40px;
   background-color: #e1fff5;
 }
 </style>
