@@ -22,6 +22,8 @@
   <video :src="phrase.videoUrl" controls></video>
   <br>
 </div> -->
+
+  <phrases-grid :phrases="phrases" />
   <p>{{this.randomFact}}</p>
 </div>
 </template>
@@ -29,6 +31,7 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import SignLanguageService from './services/sign_language_service';
+import PhrasesGrid from './components/PhrasesGrid.vue';
 import LettersGrid from "./components/LettersGrid";
 
 export default {
@@ -88,7 +91,8 @@ export default {
     // },
   },
   components: {
-    "letters-grid": LettersGrid
+    "letters-grid": LettersGrid,
+      "phrases-grid": PhrasesGrid
     // HelloWorld
   }
 }
