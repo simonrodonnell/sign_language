@@ -164,5 +164,38 @@ db.phrases.insertMany([
   {
     phrase: "I have lost my glasses",
     videoUrl: "https://media.spreadthesign.com/video/mp4/1/110290.mp4"
-  }
+  },
+  {
+    phrase: "Where is the station?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/300490.mp4"
+  },
+  {
+    phrase: "What is the temperature?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/150881.mp4"
+  },
+  {
+    phrase: "What is your name?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/150891.mp4"
+  },
+  {
+    phrase: "",
+    videoUrl: ""
+  },
+  {
+    phrase: "",
+    videoUrl: ""
+  },
+  {
+    phrase: "",
+    videoUrl: ""
+  },
+  {
+    phrase: "",
+    videoUrl: ""
+  },
+  {
+    phrase: "",
+    videoUrl: ""
+  },
+
 ]);
