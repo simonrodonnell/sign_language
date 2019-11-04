@@ -14,6 +14,7 @@
     <div v-if="imageURL" id="imageDisplay">
       <img :src="imageURL" alt="">
     </div>
+    <letters-grid :letters="letters"/>
     <!-- <div v-for="letter in letters">
     <img :src="letter.url" :alt="letter.letter">
   </div> -->
