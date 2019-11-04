@@ -178,24 +178,24 @@ db.phrases.insertMany([
     videoUrl: "https://media.spreadthesign.com/video/mp4/1/150891.mp4"
   },
   {
-    phrase: "",
-    videoUrl: ""
+    phrase: "What is the date today?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/300395.mp4"
   },
   {
-    phrase: "",
-    videoUrl: ""
+    phrase: "What is your phone number?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/150892.mp4"
   },
   {
-    phrase: "",
-    videoUrl: ""
+    phrase: "What is the weather like?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/300396.mp4"
   },
   {
-    phrase: "",
-    videoUrl: ""
+    phrase: "Have Fun",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/19280.mp4"
   },
   {
-    phrase: "",
-    videoUrl: ""
+    phrase: "Home for the holidays.",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/110071.mp4"
   },
 
 ]);
