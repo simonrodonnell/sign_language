@@ -24,6 +24,7 @@ import SignLanguageService from './services/sign_language_service';
 import PhrasesGrid from './components/PhrasesGrid.vue';
 import LettersGrid from "./components/LettersGrid";
 import Homepage from "./components/Homepage.vue";
+import RandomFacts from "./assets/RandomFacts.js";
 
 export default {
   name: 'app',
@@ -35,19 +36,21 @@ export default {
       textToSignLanguage: "",
       imageURL: "",
       randomFact: "",
-      facts: ["There are about 300 sign languages in use around the world.",
-      "British sign language is the fourth most used language in the UK with over 125,000 adults using it.",
-      "Sign language uses different grammar structures than spoken language.",
-      "The first written record of sign language being used is from the 5th century BC in Ancient Greece.",
-      "The first ever deaf school was started in Paris in 1760.",
-      "Deaf and blind people can communicate with each other by using tactile signing, which is different from sign language."]
+      // facts: ["There are about 300 sign languages in use around the world.",
+      // "British sign language is the fourth most used language in the UK with over 125,000 adults using it.",
+      // "Sign language uses different grammar structures than spoken language.",
+      // "The first written record of sign language being used is from the 5th century BC in Ancient Greece.",
+      // "The first ever deaf school was started in Paris in 1760.",
+      // "Deaf and blind people can communicate with each other by using tactile signing, which is different from sign language."]
     }
   },
   mounted(){
     this.fetchData();
+    this.randomFact = RandomFacts.getrandomFact();
     setInterval(() => {
-      this.randomFact = this.facts[Math.floor(Math.random()*this.facts.length)]
+      this.randomFact = RandomFacts.getrandomFact()
     }, 10000);
+
   },
   methods: {
     fetchData(){
@@ -112,7 +115,7 @@ html {
   background-color: #e1ecff;
   border: 2px solid #2c3e50;
   border-radius: 5px;
-  padding: 0 10px 10px 10px;
+  padding-bottom: 10px;
 }
 
 #intro-text {
@@ -144,17 +147,17 @@ ul {
 }
 
 nav li:hover {
-  padding: 0 40px;
+  padding: 0 50px;
   background-color: #e1ecff;
 }
 
 .active {
-  padding: 0 40px;
+  padding: 0 50px;
   background-color: #e1ecff;
 }
 
 .passive {
-  padding: 0 40px;
+  padding: 0 50px;
   background-color: #e1fff5;
 }
 </style>
