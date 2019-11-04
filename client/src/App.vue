@@ -49,8 +49,8 @@ export default {
   mounted(){
     this.fetchData();
     setInterval(() => {
-      this.randomFact = this.facts[Math.floor(Math.random()*facts.length)]
-    }, 3000);
+      this.randomFact = this.facts[Math.floor(Math.random()*this.facts.length)]
+    }, 10000);
   },
   methods: {
     fetchData(){
