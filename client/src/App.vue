@@ -6,16 +6,16 @@
     <div v-if="imageURL" id="imageDisplay">
       <img :src="imageURL" alt="">
     </div>
-
+<!-- 
     <div v-for="letter in letters">
     <img :src="letter.url" :title="letter.letter">
   </div>
-  <<div v-for="phrase in phrases">
+  <div v-for="phrase in phrases">
     <p>{{phrase.phrase}}</p>
     <video :src="phrase.videoUrl" :title="phrase.phrase" controls></video>
     <br>
   </div>
-
+ -->
 
 </div>
 </template>
