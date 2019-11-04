@@ -6,7 +6,8 @@
     <div v-if="imageURL" id="imageDisplay">
       <img :src="imageURL" alt="">
     </div>
-<!-- 
+    <letters-grid :letters="letters"/>
+<!--div
     <div v-for="letter in letters">
     <img :src="letter.url" :title="letter.letter">
   </div>
@@ -23,6 +24,7 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import SignLanguageService from './services/sign_language_service';
+import LettersGrid from "./components/LettersGrid";
 
 export default {
   name: 'app',
@@ -45,9 +47,9 @@ export default {
       .then(phrases => this.phrases = phrases);
     },
     searchForLetter() {
-      let array = this.textToSignLanguage.split("");
-      let index = array.length - 1
-      let search = array[index]
+      // let array = this.textToSignLanguage.split("");
+      let lastIndex = this.textToSignLanguage.length - 1
+      let search = this.textToSignLanguage[lastIndex]
       if (search === " ") {
         return
       }
@@ -68,6 +70,7 @@ export default {
     }
   },
   components: {
+    "letters-grid": LettersGrid
     // HelloWorld
   }
 }
