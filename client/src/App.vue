@@ -1,20 +1,13 @@
 <template>
   <div id="app">
     <img id="bsl-logo" src="../public/bsl_logo.png" alt="bsl_logo">
-    <input v-on:keyup="searchForLetter" type="text" v-model="textToSignLanguage">
+    <!-- <input v-on:keyup="searchForLetter" type="text" v-model="textToSignLanguage">
     <button @click="convertText">Convert String to Sign Language</button>
     <div v-if="imageURL" id="imageDisplay">
       <img :src="imageURL" alt="">
-    </div>
+    </div> -->
 
-    <div v-for="letter in letters">
-    <img :src="letter.url" :title="letter.letter">
-  </div>
-  <<div v-for="phrase in phrases">
-    <p>{{phrase.phrase}}</p>
-    <video :src="phrase.videoUrl" :title="phrase.phrase" controls></video>
-    <br>
-  </div>
+  <phrases-grid :phrases="phrases" />
 
 
 </div>
@@ -23,6 +16,7 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import SignLanguageService from './services/sign_language_service';
+import PhrasesGrid from './components/PhrasesGrid.vue';
 
 export default {
   name: 'app',
@@ -68,6 +62,7 @@ export default {
     }
   },
   components: {
+    "phrases-grid": PhrasesGrid
     // HelloWorld
   }
 }
