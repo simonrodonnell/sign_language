@@ -21,7 +21,7 @@
   <video :src="phrase.videoUrl" controls></video>
   <br>
 </div> -->
-  <p>{{this.facts[Math.floor(Math.random()*facts.length)]}}</p>
+  <p>{{this.randomFact}}</p>
 </div>
 </template>
 
@@ -37,6 +37,7 @@ export default {
       phrases: [],
       textToSignLanguage: "",
       imageURL: "",
+      randomFact: "",
       facts: ["There are about 300 sign languages in use around the world.",
       "British sign language is the fourth most used language in the UK with over 125,000 adults using it.",
       "Sign language uses different grammar structures than spoken language.",
@@ -47,6 +48,9 @@ export default {
   },
   mounted(){
     this.fetchData();
+    setInterval(() => {
+      this.randomFact = this.facts[Math.floor(Math.random()*facts.length)]
+    }, 3000);
   },
   methods: {
     fetchData(){
@@ -76,7 +80,10 @@ export default {
       // return letterArray.every((Arrayletter) => {
       //
       // })
-    }
+    },
+    // randomFactGen(){
+    //   this.randomFact = this.facts[Math.floor(Math.random()*facts.length)]
+    // },
   },
   components: {
     // HelloWorld
