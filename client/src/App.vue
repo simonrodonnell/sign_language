@@ -5,9 +5,9 @@
     <div id="components-wrapper">
       <nav>
         <ul>
-          <li @click="selectComponent('home')" >Home</li>
-          <li @click="selectComponent('phrases')">Phrases</li>
-          <li @click="selectComponent('letters')">Alphabet</li>
+          <li :class="(selectedComponent === 'home') ? 'active' : 'passive' " @click="selectComponent('home')" >Home</li>
+          <li :class="(selectedComponent === 'phrases') ? 'active' : 'passive' " @click="selectComponent('phrases')">Phrases</li>
+          <li :class="(selectedComponent === 'letters') ? 'active' : 'passive' " @click="selectComponent('letters')">Alphabet</li>
         </ul>
       </nav>
       <homepage v-if="selectedComponent === 'home' " />
@@ -130,7 +130,7 @@ html {
 }
 nav {
   margin: auto;
-  width: 60%;
+  /* width: 60%; */
 }
 
 nav li {
@@ -147,7 +147,11 @@ nav li:hover {
   background-color: #e1ecff;
 }
 
-nav li:active {
+.active {
   background-color: #e1ecff;
+}
+
+.passive {
+  background-color: #e1fff5;
 }
 </style>
