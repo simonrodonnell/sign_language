@@ -110,6 +110,14 @@ db.letters.insertMany([
 
 db.phrases.insertMany([
   {
+    phrase: "Yes",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/4121.mp4"
+  },
+  {
+    phrase: "No",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/4133.mp4"
+  },
+  {
     phrase: "Hello",
     videoUrl: "https://media.spreadthesign.com/video/mp4/1/4021.mp4"
   },
@@ -164,5 +172,53 @@ db.phrases.insertMany([
   {
     phrase: "I have lost my glasses",
     videoUrl: "https://media.spreadthesign.com/video/mp4/1/110290.mp4"
+  },
+  {
+    phrase: "Where is the station?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/300490.mp4"
+  },
+  {
+    phrase: "What is the temperature?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/150881.mp4"
+  },
+  {
+    phrase: "What is your name?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/150891.mp4"
+  },
+  {
+    phrase: "What is the date today?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/300395.mp4"
+  },
+  {
+    phrase: "What is your phone number?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/150892.mp4"
+  },
+  {
+    phrase: "What is the weather like?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/300396.mp4"
+  },
+  {
+    phrase: "Have Fun",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/19280.mp4"
+  },
+  {
+    phrase: "Home for the holidays",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/110071.mp4"
+  },
+  {
+    phrase: "What time does the bus arrive?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/150898.mp4"
+  },
+  {
+    phrase: "Take me to the airport, please",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/300363.mp4"
+  },
+  {
+    phrase: "Can I offer you anything to drink?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/298273.mp4"
+  },
+  {
+    phrase: "Can I play, too?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/298276.mp4"
   }
 ]);
