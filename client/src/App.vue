@@ -14,7 +14,7 @@
       <homepage v-if="selectedComponent === 'home' " />
       <letters-grid v-if="selectedComponent === 'letters' " :letters="letters"/>
       <phrases-grid v-if="selectedComponent === 'phrases' "  :phrases="phrases" :phrasesCount="phrasesCount" />
-      <quiz v-if="selectedComponent === 'quiz' "  :quiz="quiz" />
+      <quiz v-if="selectedComponent === 'quiz' "  :phrases="phrases" :letters="letters" />
     </div>
 
     <p id="random-fact">{{this.randomFact}}</p>
