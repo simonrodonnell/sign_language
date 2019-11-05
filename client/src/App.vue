@@ -8,11 +8,13 @@
           <li :class="(selectedComponent === 'home') ? 'active' : 'passive' " @click="selectComponent('home')" >Home</li>
           <li :class="(selectedComponent === 'letters') ? 'active' : 'passive' " @click="selectComponent('letters')">Alphabet</li>
           <li :class="(selectedComponent === 'phrases') ? 'active' : 'passive' " @click="selectComponent('phrases')">Phrases</li>
+          <li :class="(selectedComponent === 'quiz') ? 'active' : 'passive' " @click="selectComponent('quiz')">Quiz</li>
         </ul>
       </nav>
       <homepage v-if="selectedComponent === 'home' " />
       <letters-grid v-if="selectedComponent === 'letters' " :letters="letters"/>
       <phrases-grid v-if="selectedComponent === 'phrases' "  :phrases="phrases" />
+      <quiz v-if="selectedComponent === 'quiz' "  :quiz="quiz" />
     </div>
 
     <p id="random-fact">{{this.randomFact}}</p>
@@ -24,6 +26,7 @@ import SignLanguageService from './services/sign_language_service';
 import PhrasesGrid from './components/PhrasesGrid.vue';
 import LettersGrid from "./components/LettersGrid";
 import Homepage from "./components/Homepage.vue";
+import Quiz from "./components/Quiz.vue";
 import RandomFacts from "./assets/RandomFacts.js";
 
 export default {
@@ -84,7 +87,8 @@ export default {
   components: {
     "letters-grid": LettersGrid,
     "phrases-grid": PhrasesGrid,
-    "homepage": Homepage
+    "homepage": Homepage,
+    "quiz": Quiz
   }
 }
 </script>
