@@ -142,10 +142,6 @@ db.phrases.insertMany([
     videoUrl: "https://media.spreadthesign.com/video/mp4/1/150958.mp4"
   },
   {
-    phrase: "How old are you?",
-    videoUrl: "https://media.spreadthesign.com/video/mp4/1/26749.mp4"
-  },
-  {
     phrase: "How much is it?",
     videoUrl: "https://media.spreadthesign.com/video/mp4/1/33154.mp4"
   },
@@ -220,5 +216,18 @@ db.phrases.insertMany([
   {
     phrase: "Can I play, too?",
     videoUrl: "https://media.spreadthesign.com/video/mp4/1/298276.mp4"
-  }
+  },
+  {
+    phrase: "You are welcome",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/12823.mp4"
+  },
+  {
+    phrase: "I have to go home",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/119565.mp4"
+  },
+  {
+    phrase: "Do you want a beer?",
+    videoUrl: "https://media.spreadthesign.com/video/mp4/1/33224.mp4"
+  },
+
 ]);
