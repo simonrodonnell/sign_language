@@ -1,16 +1,31 @@
 <template lang="html">
   <div id="phrases-grid-wrapper">
-
+<br>
     <input id="search-bar" v-on:keyup="searchForPhrase" type="text" v-model="search">
+<br>
+<br>
+    <!-- <div id="display-video">
+      <h2>{{this.displayPhrase.phrase}}</h2>
+      <video v-if="displayPhrase" :src="this.displayPhrase.videoUrl" controls autoplay loop></video>
+    </div> -->
+    <div id="phrases-wrapper-left" v-for="(phrase, index) in phrases" v-if="index <= 14">
+      <p id="phrase" @click="onClick(phrase)">{{phrase.phrase}}</p>
+    </div>
+
+    <div id="phrases-wrapper-right" v-for="(phrase, index) in phrases" v-if="index > 14">
+      <p id="phrase" @click="onClick(phrase)">{{phrase.phrase}}</p>
+    </div>
 
     <div id="display-video">
       <h2>{{this.displayPhrase.phrase}}</h2>
       <video v-if="displayPhrase" :src="this.displayPhrase.videoUrl" controls autoplay loop></video>
     </div>
+  <br>
+  <p id="invible">You found me :)</p>
+  <br>
 
-    <div id="phrases-wrapper" v-for="phrase in phrases">
-      <p id="phrase" @click="onClick(phrase)">{{phrase.phrase}}</p>
-    </div>
+
+
 
   </div>
 </template>
@@ -47,23 +62,29 @@ export default {
 
 #search-bar {
   text-align: center;
+  justify-content: center;
 }
 
-#phrases-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 25%;
-  flex-wrap: wrap;
-  height: 65px;
-  column-width: 50px;
-  overflow: auto;
-  columns: 2;
-  flex: 0, 50%;
-  flex-grow: 0;
+#phrases-wrapper-left {
+
+  float: left;
+  width: 48%;
+  margin: 1%;
+
+}
+
+#phrases-wrapper-right {
+
+  float: right;
+  width: 48%;
+  margin: 1%;
 }
 
 #display-video {
-  float: right;
+    /* float: right; */
+}
+
+#invible {
+  color: #e1ecff;
 }
 </style>
