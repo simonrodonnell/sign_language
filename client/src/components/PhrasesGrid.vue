@@ -20,14 +20,13 @@
   <br>
   <p id="invible">You found me :)</p>
 
-
   </div>
 </template>
 
 <script>
 export default {
   name: "phrases-grid",
-  props: ["phrases", "phrasesCount"], 
+  props: ["phrases", "phrasesCount"],
   data () {
     return {
       displayPhrase: "",
