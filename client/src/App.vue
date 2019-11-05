@@ -35,6 +35,7 @@ export default {
     return {
       letters: [],
       phrases: [],
+      phrasesCount: 0,
       selectedComponent: "home",
       textToSignLanguage: "",
       imageURL: "",
@@ -53,7 +54,9 @@ export default {
     setInterval(() => {
       this.randomFact = RandomFacts.getrandomFact()
     }, 10000);
-
+     setTimeout(() => {
+    this.countPhrases()
+  }, 1000)
   },
   methods: {
     fetchData(){
@@ -83,6 +86,11 @@ export default {
       let letterArray = this.textToSignLanguage.split("");
       console.log(letterArray);
     },
+    countPhrases() {
+      let phrasesCount = this.phrases.length
+      // console.log("phrases log:", this.phrases);
+      console.log("phrasesCount log:", phrasesCount)
+    }
   },
   components: {
     "letters-grid": LettersGrid,
