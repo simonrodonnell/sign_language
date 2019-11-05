@@ -20,7 +20,7 @@
       <video v-if="displayPhrase" :src="this.displayPhrase.videoUrl" controls autoplay loop></video>
     </div>
     <br>
-    <p id="invible">You found me :)</p>
+    <p id="invisible">You found me :)</p>
 
   </div>
 </template>
@@ -86,7 +86,7 @@ export default {
   /* float: right; */
 }
 
-#invible {
+#invisible {
   color: #e1ecff;
 }
 </style>
