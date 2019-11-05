@@ -4,10 +4,7 @@
     <input id="search-bar" v-on:keyup="searchForPhrase" type="text" v-model="search">
 <br>
 <br>
-    <!-- <div id="display-video">
-      <h2>{{this.displayPhrase.phrase}}</h2>
-      <video v-if="displayPhrase" :src="this.displayPhrase.videoUrl" controls autoplay loop></video>
-    </div> -->
+
     <div id="phrases-wrapper-left" v-for="(phrase, index) in phrases" v-if="index <= 14">
       <p id="phrase" @click="onClick(phrase)">{{phrase.phrase}}</p>
     </div>
@@ -22,7 +19,7 @@
     </div>
   <br>
   <p id="invible">You found me :)</p>
-  <br>
+  
 
 
 
