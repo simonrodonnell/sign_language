@@ -1,5 +1,7 @@
 <template lang="html">
   <div id="phrases-grid-wrapper">
+      <h2>Phrases in Sign Language</h2>
+      <h3>Select an option or use the search box below</h3>
     <br>
     <input id="search-bar" v-on:keyup="searchForPhrase" type="text" v-model="search">
     <br>
@@ -18,7 +20,7 @@
       <video v-if="displayPhrase" :src="this.displayPhrase.videoUrl" controls autoplay loop></video>
     </div>
     <br>
-    <p id="invible">You found me :)</p>
+    <p id="invisible">You found me :)</p>
 
   </div>
 </template>
@@ -84,7 +86,7 @@ export default {
   /* float: right; */
 }
 
-#invible {
+#invisible {
   color: #e1ecff;
 }
 </style>
