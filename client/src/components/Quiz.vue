@@ -2,7 +2,7 @@
   <div id="quiz-container">
 
     <div v-if="!quizStarted">
-
+      <label for="">Choose number of questions: </label>
       <select v-model="numOfQuestions">
         <option :value="1">1</option>
         <option :value="2">2</option>
@@ -10,60 +10,80 @@
         <option :value="4">4</option>
         <option :value="5">5</option>
       </select>
+      <br>
       <button @click="startQuiz" type="submit" name="submit">Start Quiz</button>
     </div>
 
-    <div id="quizQuestions" v-for="(question, index) in quizQuestions">
-      <div :class="submittedAnswers[index]">
-
-        <div v-if="question.letter" >
-          <img :src="question.url" alt="">
-          <p>What letter is this?</p>
-          <div v-for="answer in quizAnswers[index]">
-            <input type="radio" id="quizAnswer" :name="answer" :value="answer" v-model="quizAnswer">
-            <label for="quizAnswer">{{answer}}</label>
-          </div>
-        </div>
-
-        <div v-if="question.phrase" >
-          <video :src="question.videoUrl" controls autoplay></video>
-          <p>What is this phrase?</p>
-          <div v-for="answer in quizAnswers[index]">
-            <input type="radio" id="quizAnswer" :name="answer" :value="answer" v-model="quizAnswer">
-            <label for="quizAnswer">{{answer}}</label>
-          </div>
-        </div>
-
-        <button @click="checkAnswer(question, index)" type="submit">Submit Answer</button>
-
-      </div>
-
+    <div v-if="quizStarted">
+      <h1>Question {{questionIndex + 1}}</h1>
     </div>
 
+    <question v-if="quizStarted" :question="currentQuestion" :answers="currentAnswers" :quizCompleted="quizCompleted"/>
 
     <div v-if="quizStarted">
-      <h2>{{score}}/{{numOfQuestions}}</h2>
+      <h2>{{quizScore}}/{{numOfQuestions}}</h2>
     </div>
-    
+
 
   </div>
 </template>
 
 <script>
+import Question from "./Question.vue";
+import { eventBus } from '../main';
+
 export default {
   name: "quiz",
+  mounted(){
+    eventBus.$on("submit-answer", (answerEval) => {
+      this.submittedAnswers[this.questionIndex] = answerEval
+      this.quizScore = this.calculateAnswers()
+      this.checkQuizComplete()
+    });
+    eventBus.$on("next-question", () => {
+      let questionIndexAdjusted = this.questionIndex - 1
+      if (questionIndexAdjusted < this.numOfQuestions) {
+        this.questionIndex += 1;
+      }
+      this.checkQuizComplete()
+    });
+    eventBus.$on("quiz-completed", () => {
+      this.resetData();
+    });
+  },
   data() {
     return {
       quizQuestions: [],
       quizAnswers: [],
       submittedAnswers: [],
       quizStarted: false,
-      numOfQuestions: 2,
+      quizCompleted: false,
+      numOfQuestions: 5,
       quizAnswer: "",
-      score: 0
+      questionIndex: 0,
+      quizScore: 0
+    }
+  },
+  computed: {
+    currentQuestion: function() {
+      if (this.quizQuestions.length > 0) {
+        return this.quizQuestions[this.questionIndex]
+      } else {
+        return {};
+      }
+    },
+    currentAnswers: function() {
+      if (this.quizQuestions.length > 0) {
+        return this.quizAnswers[this.questionIndex]
+      } else {
+        return {};
+      }
     }
   },
   props: ["letters","phrases"],
+  components: {
+    "question": Question
+  },
   methods: {
     startQuiz(){
       this.quizQuestions = []
@@ -75,11 +95,9 @@ export default {
         this.submittedAnswers.push("unanswered");
         answerNum += 1;
       }
-
       while (this.numOfQuestions > questionNum) {
         // randomly select question/answer
         let question = this.randomQuestion()
-
         //determine whether result is letter or phrase
         let questionIsLetter = null
         let catValue = null
@@ -92,7 +110,7 @@ export default {
           questionIsLetter = false;
           catValue = 0;
         };
-        console.log("catValue:", catValue)
+        // console.log("catValue:", catValue)
         // array for 3 wrong answers
         let answerOptions = []
         // add the question to the question array
@@ -109,71 +127,63 @@ export default {
                 answerOptions.push(wrongAnswer.letter)
               }
             }
-            wrongAnswerCount += 1
-            console.log("Question Options:", answerOptions)
-
+            wrongAnswerCount += 1;
+            // console.log("Question Options:", answerOptions)
           }
           if (question.phrase) {
-            answerOptions.push(question.phrase)
+            answerOptions.push(question.phrase);
           } else {
-            answerOptions.push(question.letter)
+            answerOptions.push(question.letter);
           }
-
-          this.quizAnswers.push(answerOptions)
-          questionNum += 1
-
+          this.quizAnswers.push(answerOptions);
+          questionNum += 1;
         }
       }
-      // this.quizStarted = false
-    },
-    checkAnswer(question, index){
-      console.log("this is the question:", question)
-      if (question.phrase) {
-        if (this.quizAnswer === question.phrase) {
-          this.submittedAnswers[index] = "correct"
-          console.log("this is the answer:", this.quizAnswer)
-          this.score += 1
-        } else {
-          this.submittedAnswers[index] = "wrong"
-        }
-
-
-      } else {
-        if (this.quizAnswer === question.letter) {
-          console.log("this is the answer:", this.quizAnswer)
-          this.submittedAnswers[index] = "correct"
-          this.score += 1
-        } else {
-          this.submittedAnswers[index] = "wrong"
-        }
+      if (this.questionIndex === this.numOfQuestions){
+        this.quizStarted = false
       }
     },
     randomQuestion(category = Math.floor(Math.random() * 2)){
-      // ### RANDOM NUMBER TO CHOOSE CATEGORY ###
-      // let chooseCategory = Math.floor(Math.random() * 2);
-
       if (category > 0) {
         // ### SELECT RANDOM LETTER -- ONE ###
-
         let selectedLetter = this.letters[Math.floor(Math.random() * this.letters.length)];
         return selectedLetter;
-
       } else {
         // ### SELECT RANDOM PHRASE -- ZERO ###
-
         let selectedPhrase = this.phrases[Math.floor(Math.random() * this.phrases.length)];
         return selectedPhrase;
       }
+    },
+    calculateAnswers(answerOption = "correct"){
+      let answersArray = []
+      answersArray = this.submittedAnswers.filter((answer) => {
+        if (answer === answerOption) {
+          return answer;
+        };
+      })
+      return answersArray.length;
+    },
+    checkQuizComplete(){
+      let numOfUnanswered = this.calculateAnswers("unanswered")
+      console.log("Number of unanswered:", numOfUnanswered)
+      if (numOfUnanswered === 0) {
+        this.quizCompleted = true;
+      }
+    },
+    resetData () {
+      this.quizQuestions = []
+      this.quizAnswers = []
+      this.submittedAnswers = []
+      this.quizStarted = false
+      this.quizCompleted = false
+      this.numOfQuestions = 5
+      this.quizAnswer = ""
+      this.questionIndex = 0
     }
   }
 }
 </script>
 
 <style lang="css" scoped>
-.correct {
-  border: 5px solid green;
-}
-.wrong {
-  border: 5px solid red;
-}
+
 </style>
