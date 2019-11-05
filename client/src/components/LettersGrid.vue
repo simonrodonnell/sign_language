@@ -1,17 +1,15 @@
 <template lang="html">
-<div class="">
-  <h2>Letters in Sign Language</h2>
-  <input v-on:keyup="searchForLetter" type="text" v-model="textToSignLanguage">
-  <!-- <button @click="convertText">Convert String to Sign Language</button> -->
-  <div v-if="imageURL" id="imageDisplay">
-    <img :src="imageURL" alt="">
-  </div>
-  <!-- <select class="" name="">
-    <option :value="anything" disabled></option>
-    <option :value="sign.value" v-for="(sign, index) in letters" :key="index" :sign="sign">{{sign.letter}}</option>
-  </select> -->
+  <div class="">
+    <h2>Letters in Sign Language</h2>
 
-</div>
+    <input v-on:keyup="displayLetterSign(textToSignLanguage)" type="text" v-model="textToSignLanguage">
+    <button @click="animateText">Show in Sign Language</button>
+
+    <div v-if="imageURL" id="imageDisplay">
+      <img :src="imageURL" alt="">
+    </div>
+
+  </div>
 </template>
 
 <script>
@@ -25,21 +23,38 @@ export default {
     }
   },
   methods: {
-    searchForLetter() {
-    let lastIndex = this.textToSignLanguage.length - 1
-    let search = this.textToSignLanguage[lastIndex]
-    if (search === " ") {
-      return
-    }
-    else
-    {
-      let result = this.letters.find((letter) => {
-        return letter.letter.toLowerCase() === search.toLowerCase()
+    findLetter(searchLetter) {
+      let allLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      if (allLetters.includes(searchLetter)) {
+        return this.letters.find((letter) => {
+          return letter.letter.toLowerCase() === searchLetter.toLowerCase()
+        })
+      }
+      else
+      {
+        console.log("computer says no")
+      }
+    },
+    displayLetterSign(textInput) {
+      let lastIndex = textInput.length - 1;
+      let search = textInput[lastIndex];
+      let result = this.findLetter(search);
+      if (result) {this.imageURL = result.url};
+    },
+    animateText() {
+      this.textToSignLanguage.split("").forEach((letter) => {
+        let result = this.findLetter(letter)
+        if (result) {
+          let resultUrl = result.url
+          setTimeout(function(){
+            this.imageURL = resultUrl
+            console.log("This is a timed result:", resultUrl);
+          },
+          3000);
+        }
       })
-      this.imageURL = result.url
-    }
+    },
   }
-}
 }
 </script>
 
