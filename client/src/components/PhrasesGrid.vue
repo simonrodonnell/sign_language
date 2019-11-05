@@ -19,9 +19,6 @@
     </div>
   <br>
   <p id="invible">You found me :)</p>
-  
-
-
 
 
   </div>
@@ -30,7 +27,7 @@
 <script>
 export default {
   name: "phrases-grid",
-  props: ["phrases"],
+  props: ["phrases", "phrasesCount"], 
   data () {
     return {
       displayPhrase: "",
