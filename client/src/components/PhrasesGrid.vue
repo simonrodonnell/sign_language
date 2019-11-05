@@ -1,15 +1,15 @@
 <template lang="html">
   <div id="phrases-grid-wrapper">
-<br>
+    <br>
     <input id="search-bar" v-on:keyup="searchForPhrase" type="text" v-model="search">
-<br>
-<br>
+    <br>
+    <br>
 
-    <div id="phrases-wrapper-left" v-for="(phrase, index) in phrases" v-if="index <= 14">
+    <div id="phrases-wrapper-left" v-for="(phrase, index) in phrases" v-if="index <= columnLength">
       <p id="phrase" @click="onClick(phrase)">{{phrase.phrase}}</p>
     </div>
 
-    <div id="phrases-wrapper-right" v-for="(phrase, index) in phrases" v-if="index > 14">
+    <div id="phrases-wrapper-right" v-for="(phrase, index) in phrases" v-if="index > columnLength">
       <p id="phrase" @click="onClick(phrase)">{{phrase.phrase}}</p>
     </div>
 
@@ -17,8 +17,8 @@
       <h2>{{this.displayPhrase.phrase}}</h2>
       <video v-if="displayPhrase" :src="this.displayPhrase.videoUrl" controls autoplay loop></video>
     </div>
-  <br>
-  <p id="invible">You found me :)</p>
+    <br>
+    <p id="invible">You found me :)</p>
 
   </div>
 </template>
@@ -30,8 +30,12 @@ export default {
   data () {
     return {
       displayPhrase: "",
-      search: ""
+      search: "",
+      columnLength: 0
     }
+  },
+  mounted(){
+      this.dividePhraseCount()
   },
   methods: {
     onClick(phrase){
@@ -43,6 +47,9 @@ export default {
         return phrase.phrase.toLowerCase().indexOf(this.search.toLowerCase()) > -1
       })
       this.displayPhrase = foundPhrase
+    },
+    dividePhraseCount() {
+      this.columnLength = this.phrasesCount / 2
     }
   }
 }
@@ -74,7 +81,7 @@ export default {
 }
 
 #display-video {
-    /* float: right; */
+  /* float: right; */
 }
 
 #invible {

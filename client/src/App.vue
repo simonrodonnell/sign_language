@@ -13,7 +13,7 @@
       </nav>
       <homepage v-if="selectedComponent === 'home' " />
       <letters-grid v-if="selectedComponent === 'letters' " :letters="letters"/>
-      <phrases-grid v-if="selectedComponent === 'phrases' "  :phrases="phrases" />
+      <phrases-grid v-if="selectedComponent === 'phrases' "  :phrases="phrases" :phrasesCount="phrasesCount" />
       <quiz v-if="selectedComponent === 'quiz' "  :quiz="quiz" />
     </div>
 
@@ -67,9 +67,8 @@ export default {
       console.log(letterArray);
     },
     countPhrases() {
-      let phrasesCount = this.phrases.length
-      // console.log("phrases log:", this.phrases);
-      console.log("phrasesCount log:", phrasesCount)
+      let countFunctionThing = this.phrases.length
+      return this.phrasesCount = countFunctionThing
     }
   },
   components: {
