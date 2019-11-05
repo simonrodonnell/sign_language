@@ -1,5 +1,7 @@
 <template lang="html">
   <div id="phrases-grid-wrapper">
+      <h2>Phrases in Sign Language</h2>
+      <h3>Select an option or use the search box below</h3>
     <br>
     <input id="search-bar" v-on:keyup="searchForPhrase" type="text" v-model="search">
     <br>
