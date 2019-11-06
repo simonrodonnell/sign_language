@@ -16,8 +16,8 @@
       <h2>{{this.displayPhrase.phrase}}</h2>
     </div>
     <br>
-    <label for="search-bar">Search for phrase</label>
-    <input id="search-bar" v-on:keyup="searchForPhrase" type="text" v-model="search">
+    <label for="search-bar">Search for phrase: </label>
+    <input class="textInput" id="search-bar" v-on:keyup="searchForPhrase" type="text" v-model="search">
 
 
   </div>
@@ -62,7 +62,6 @@ export default {
 }
 
 #search-bar {
-  text-align: center;
   justify-content: center;
 }
 
@@ -87,5 +86,11 @@ export default {
 
 #invisible {
   color: #2c3e50;
+}
+.textInput{
+  border-radius: 10px;
+  color: black;
+  margin-left: 10px;
+  padding-left: 5px;
 }
 </style>

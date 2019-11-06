@@ -17,7 +17,7 @@
     </div>
     <br>
     <label for="">Search for letter: </label>
-    <input v-on:keyup="displayLetterSign(textToSignLanguage)" type="text" v-model="textToSignLanguage">
+    <input class="textInput" v-on:keyup="displayLetterSign(textToSignLanguage)" type="text" v-model="textToSignLanguage">
     <!-- <button @click="animateText">Show in Sign Language</button> -->
 
   </div>
@@ -74,4 +74,12 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+  .textInput{
+    border-radius: 10px;
+    color: black;
+    margin-left: 10px;
+    padding-left: 5px;
+  }
+
 </style>

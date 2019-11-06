@@ -200,6 +200,7 @@ export default {
   .button{
     border-radius: 10px;
     color: black;
+    padding: 4px;
   }
 
 </style>

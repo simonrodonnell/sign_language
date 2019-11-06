@@ -18,7 +18,7 @@
     </div>
 
     <button class="button" v-if="!questionAnswered && !quizCompleted" @click="submitAnswer" type="submit">Submit Answer</button>
-    <button v-if="questionAnswered && !quizCompleted" @click="nextQuestion" type="submit">Next Question</button>
+    <button class="button" v-if="questionAnswered && !quizCompleted" @click="nextQuestion" type="submit">Next Question</button>
     <button v-if="quizCompleted" @click="finishQuiz" type="submit">Restart Quiz</button>
 
   </div>
@@ -85,5 +85,6 @@ export default {
 .button{
   border-radius: 10px;
   color: black;
+  padding: 4px;
 }
 </style>
