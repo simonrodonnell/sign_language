@@ -12,8 +12,9 @@
       </select>
       <br>
       <button @click="startQuiz" type="submit" name="submit">Start Quiz</button>
+      <p>You will be shown a series of images or videos that demonstrate some British Sign Language, have a go and see how many you can identify correctly.</p>
+      <p>Have fun!</p>
     </div>
-
     <div v-if="quizStarted">
       <h1>Question {{questionIndex + 1}}</h1>
     </div>
@@ -165,7 +166,6 @@ export default {
     },
     checkQuizComplete(){
       let numOfUnanswered = this.calculateAnswers("unanswered")
-      console.log("Number of unanswered:", numOfUnanswered)
       if (numOfUnanswered === 0) {
         this.quizCompleted = true;
       }

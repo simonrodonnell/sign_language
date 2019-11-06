@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img id="bsl-logo" src="../public/bsl_logo.png" alt="bsl_logo">
     <p id="intro-text">CODECLAN E34'S SIGN LANGUAGE LEARNING RESOURCE</p>
     <div id="components-wrapper">
       <nav>
@@ -119,9 +118,6 @@ html {
   padding: 10px;
 }
 
-#bsl-logo {
-  width: 150px;
-}
 nav {
   margin: auto;
   /* width: 60%; */
