@@ -165,7 +165,7 @@ export default {
     },
     checkQuizComplete(){
       let numOfUnanswered = this.calculateAnswers("unanswered")
-      console.log("Number of unanswered:", numOfUnanswered)
+      // console.log("Number of unanswered:", numOfUnanswered)
       if (numOfUnanswered === 0) {
         this.quizCompleted = true;
       }
