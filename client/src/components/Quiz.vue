@@ -12,8 +12,13 @@
       </select>
       <br>
       <button @click="startQuiz" type="submit" name="submit">Start Quiz</button>
+      <br>
+      <br>
+      <br>
       <p>You will be shown a series of images or videos that demonstrate some British Sign Language, have a go and see how many you can identify correctly.</p>
-      <p>Have fun!</p>
+      <br>
+      <br>
+      <h2>Have Fun!</h2>
     </div>
     <div v-if="quizStarted">
       <h1>Question {{questionIndex + 1}}</h1>

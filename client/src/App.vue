@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p id="intro-text">CODECLAN E34'S SIGN LANGUAGE LEARNING RESOURCE</p>
+    <p id="intro-text">THE A TEAM'S SIGN LANGUAGE LEARNING RESOURCE</p>
     <div id="components-wrapper">
       <nav>
         <ul>
@@ -100,7 +100,7 @@ html {
 
 #components-wrapper {
   margin: auto;
-  max-height: 80%;
+  min-height: 325px;
   width: 60%;
   background-color: #e1ecff;
   border: 2px solid #2c3e50;
