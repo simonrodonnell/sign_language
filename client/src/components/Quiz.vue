@@ -34,6 +34,19 @@ import { eventBus } from '../main';
 
 export default {
   name: "quiz",
+  data() {
+    return {
+      quizQuestions: [],
+      quizAnswers: [],
+      submittedAnswers: [],
+      quizStarted: false,
+      quizCompleted: false,
+      numOfQuestions: 5,
+      quizAnswer: "",
+      questionIndex: 0,
+      quizScore: 0
+    }
+  },
   mounted(){
     eventBus.$on("submit-answer", (answerEval) => {
       this.submittedAnswers[this.questionIndex] = answerEval
@@ -50,19 +63,6 @@ export default {
     eventBus.$on("quiz-completed", () => {
       this.resetData();
     });
-  },
-  data() {
-    return {
-      quizQuestions: [],
-      quizAnswers: [],
-      submittedAnswers: [],
-      quizStarted: false,
-      quizCompleted: false,
-      numOfQuestions: 5,
-      quizAnswer: "",
-      questionIndex: 0,
-      quizScore: 0
-    }
   },
   computed: {
     currentQuestion: function() {
