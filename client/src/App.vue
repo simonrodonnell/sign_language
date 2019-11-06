@@ -136,6 +136,7 @@ ul {
 nav li:hover {
   padding: 0 50px;
   background-color: #e1ecff;
+  cursor: pointer;
 }
 
 .active {
