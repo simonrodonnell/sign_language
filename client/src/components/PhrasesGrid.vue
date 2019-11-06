@@ -1,26 +1,24 @@
 <template lang="html">
   <div id="phrases-grid-wrapper">
-      <h2>Phrases in Sign Language</h2>
-      <h3>Select an option or use the search box below</h3>
-    <br>
-    <input id="search-bar" v-on:keyup="searchForPhrase" type="text" v-model="search">
-    <br>
-    <br>
-
-    <div id="phrases-wrapper-left" v-for="(phrase, index) in phrases" v-if="index <= columnLength">
-      <p id="phrase" @click="onClick(phrase)">{{phrase.phrase}}</p>
-    </div>
-
-    <div id="phrases-wrapper-right" v-for="(phrase, index) in phrases" v-if="index > columnLength">
-      <p id="phrase" @click="onClick(phrase)">{{phrase.phrase}}</p>
-    </div>
-
-    <div id="display-video">
-      <h2>{{this.displayPhrase.phrase}}</h2>
-      <video v-if="displayPhrase" :src="this.displayPhrase.videoUrl" controls autoplay loop></video>
+    <h2>Phrases in Sign Language</h2>
+    <h3>Select an option or use the search box below</h3>
+    <div>
+      <select v-model="displayPhrase">
+        <option value="" default selected>Select a phrase</option>
+        <option v-for="phrase in phrases" :value="phrase">{{phrase.phrase}}</option>
+      </select>
     </div>
     <br>
     <p id="invisible">You found me :)</p>
+
+    <div id="display-video">
+      <video v-if="displayPhrase" :src="this.displayPhrase.videoUrl" controls autoplay loop></video>
+      <h2>{{this.displayPhrase.phrase}}</h2>
+    </div>
+    <br>
+    <label for="search-bar">Search for phrase</label>
+    <input id="search-bar" v-on:keyup="searchForPhrase" type="text" v-model="search">
+
 
   </div>
 </template>
@@ -37,10 +35,11 @@ export default {
     }
   },
   mounted(){
-      this.dividePhraseCount()
+    this.dividePhraseCount()
   },
   methods: {
     onClick(phrase){
+      console.log("The phrase:", phrase)
       this.search = "";
       this.displayPhrase = phrase
     },

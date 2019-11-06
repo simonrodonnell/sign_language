@@ -1,13 +1,21 @@
 <template lang="html">
   <div class="">
     <h2>Letters in Sign Language</h2>
-
-    <input v-on:keyup="displayLetterSign(textToSignLanguage)" type="text" v-model="textToSignLanguage">
-    <button @click="animateText">Show in Sign Language</button>
-
-    <div v-if="imageURL" id="imageDisplay">
-      <img :src="imageURL" alt="">
+    <h3>Select an option or use the search box below</h3>
+    <div>
+      <select v-model="displayLetter">
+        <option value="" default selected>Select a letter</option>
+        <option v-for="letter in letters" :value="letter">{{letter.letter}}</option>
+      </select>
     </div>
+
+    <div v-if="displayLetter" id="imageDisplay">
+      <img :src="displayLetter.url" alt="">
+    </div>
+    <br>
+    <label for="">Search for letter: </label>
+    <input v-on:keyup="displayLetterSign(textToSignLanguage)" type="text" v-model="textToSignLanguage">
+    <!-- <button @click="animateText">Show in Sign Language</button> -->
 
   </div>
 </template>
@@ -20,6 +28,7 @@ export default {
     return {
       textToSignLanguage: "",
       textToAnimate: [],
+      displayLetter: "",
       imageURL: ""
     }
   },
@@ -40,7 +49,7 @@ export default {
       let lastIndex = textInput.length - 1;
       let search = textInput[lastIndex];
       let result = this.findLetter(search);
-      if (result) {this.imageURL = result.url};
+      if (result) {this.imageURL = result.url; this.displayLetter = result};
     },
     animateText() {
       this.textToAnimate = this.textToSignLanguage.split("");

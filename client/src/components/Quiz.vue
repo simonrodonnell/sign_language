@@ -1,7 +1,11 @@
 <template lang="html">
   <div id="quiz-container">
-
+        <h2>Sign Language Quiz</h2>
+<br>
     <div v-if="!quizStarted">
+      <p>You will be shown a series of images or videos that demonstrate some British Sign Language, have a go and see how many you can identify correctly.</p>
+      <br>
+      <br>
       <label for="">Choose number of questions: </label>
       <select v-model="numOfQuestions">
         <option :value="1">1</option>
@@ -13,9 +17,6 @@
       <br>
       <button @click="startQuiz" type="submit" name="submit">Start Quiz</button>
       <br>
-      <br>
-      <br>
-      <p>You will be shown a series of images or videos that demonstrate some British Sign Language, have a go and see how many you can identify correctly.</p>
       <br>
       <br>
       <h2>Have Fun!</h2>
