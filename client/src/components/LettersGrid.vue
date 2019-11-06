@@ -8,9 +8,12 @@
         <option v-for="letter in letters" :value="letter">{{letter.letter}}</option>
       </select>
     </div>
+    <br>
+    <br>
 
     <div v-if="displayLetter" id="imageDisplay">
       <img :src="displayLetter.url" alt="">
+      <br>
     </div>
     <br>
     <label for="">Search for letter: </label>
