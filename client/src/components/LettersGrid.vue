@@ -19,6 +19,7 @@ export default {
   data(){
     return {
       textToSignLanguage: "",
+      textToAnimate: [],
       imageURL: ""
     }
   },
@@ -42,17 +43,19 @@ export default {
       if (result) {this.imageURL = result.url};
     },
     animateText() {
-      this.textToSignLanguage.split("").forEach((letter) => {
-        let result = this.findLetter(letter)
-        if (result) {
-          let resultUrl = result.url
-          setTimeout(function(){
-            this.imageURL = resultUrl
-            console.log("This is a timed result:", resultUrl);
-          },
-          3000);
-        }
-      })
+      this.textToAnimate = this.textToSignLanguage.split("");
+      let arrayLength = this.textToAnimate.length;
+      const displayAnimateText = function() {
+        let loopCount = 0;
+        do {
+          console.log("This animated letter:", this.textToAnimate)
+          this.textToAnimate.splice(0 , 1);
+          loopCount += 1
+        } while (loopCount < arrayLength)
+      };
+      setTimeout(function(){
+        displayAnimateText();
+      }, 1000);
     },
   }
 }
