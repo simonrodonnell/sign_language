@@ -107,34 +107,39 @@ export default {
         //determine whether result is letter or phrase
         let questionIsLetter = null
         let catValue = null
+        // category is letter
         if (question.letter) {
-          // category is letter
           questionIsLetter = true;
           catValue = 1;
-        } else {
           // category is phrase
+        } else {
           questionIsLetter = false;
           catValue = 0;
         };
-        // console.log("catValue:", catValue)
         // array for 3 wrong answers
         let answerOptions = []
         // add the question to the question array
         if (!this.quizQuestions.includes(question)) {
           this.quizQuestions.push(question)
-          // check wrong answer against randomQuestion and add to array
+          // check wrong answer against question and add to array
           let wrongAnswerCount = 1;
           while (wrongAnswerCount < 4) {
             let wrongAnswer = this.randomQuestion(catValue)
             if (wrongAnswer != question) {
               if (wrongAnswer.phrase) {
-                answerOptions.push(wrongAnswer.phrase)
+                if (!answerOptions.includes(wrongAnswer.phrase))
+                {
+                  answerOptions.push(wrongAnswer.phrase)
+                  wrongAnswerCount += 1;
+                }
               } else {
-                answerOptions.push(wrongAnswer.letter)
+                if (!answerOptions.includes(wrongAnswer.phrase))
+                {
+                  answerOptions.push(wrongAnswer.letter)
+                  wrongAnswerCount += 1;
+                }
               }
             }
-            wrongAnswerCount += 1;
-            // console.log("Question Options:", answerOptions)
           }
           if (question.phrase) {
             answerOptions.push(question.phrase);
@@ -171,6 +176,10 @@ export default {
     },
     checkQuizComplete(){
       let numOfUnanswered = this.calculateAnswers("unanswered")
+<<<<<<< HEAD
+=======
+      // console.log("Number of unanswered:", numOfUnanswered)
+>>>>>>> feature/simon_work_wednesday
       if (numOfUnanswered === 0) {
         this.quizCompleted = true;
       }
