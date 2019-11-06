@@ -17,7 +17,7 @@
       <h4 v-if="questionAnswered && question.letter">The correct answer is {{question.letter.toUpperCase()}}</h4>
     </div>
 
-    <button v-if="!questionAnswered && !quizCompleted" @click="submitAnswer" type="submit">Submit Answer</button>
+    <button class="button" v-if="!questionAnswered && !quizCompleted" @click="submitAnswer" type="submit">Submit Answer</button>
     <button v-if="questionAnswered && !quizCompleted" @click="nextQuestion" type="submit">Next Question</button>
     <button v-if="quizCompleted" @click="finishQuiz" type="submit">Restart Quiz</button>
 
@@ -81,5 +81,9 @@ export default {
 }
 .wrong {
   border: 5px solid red;
+}
+.button{
+  border-radius: 10px;
+  color: black;
 }
 </style>

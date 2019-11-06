@@ -15,7 +15,7 @@
         <option :value="5">5</option>
       </select>
       <br>
-      <button @click="startQuiz" type="submit" name="submit">Start Quiz</button>
+      <button class="button" @click="startQuiz" type="submit" name="submit">Start Quiz</button>
       <br>
       <br>
       <br>
@@ -196,5 +196,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+  .button{
+    border-radius: 10px;
+    color: black;
+  }
 
 </style>
