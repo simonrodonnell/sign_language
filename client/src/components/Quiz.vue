@@ -175,11 +175,7 @@ export default {
       return answersArray.length;
     },
     checkQuizComplete(){
-      let numOfUnanswered = this.calculateAnswers("unanswered")
-<<<<<<< HEAD
-=======
-      // console.log("Number of unanswered:", numOfUnanswered)
->>>>>>> feature/simon_work_wednesday
+      let numOfUnanswered = this.calculateAnswers("unanswered");
       if (numOfUnanswered === 0) {
         this.quizCompleted = true;
       }
