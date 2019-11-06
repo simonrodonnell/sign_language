@@ -83,10 +83,11 @@ export default {
 * {
   margin: 0;
   padding: 0;
+  color: #E6EAF5;
 }
 
 html {
-  background-color: #effff9;
+  background-color: #3d468b;
 }
 
 #app {
@@ -94,7 +95,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #6774a3;
   margin-top: 5px;
 }
 
@@ -102,8 +103,8 @@ html {
   margin: auto;
   min-height: 325px;
   width: 60%;
-  background-color: #e1ecff;
-  border: 2px solid #2c3e50;
+  background-color: #2c3e50;
+  border: 2px solid #000000;
   border-radius: 5px;
   padding-bottom: 10px;
 }
@@ -130,22 +131,22 @@ nav li {
 
 ul {
   list-style: none;
-  background-color: #e1fff5;
+  background-color: #2c3e50;
 }
 
 nav li:hover {
   padding: 0 50px;
-  background-color: #e1ecff;
+  background-color: #4775ff;
 }
 
 .active {
   padding: 0 50px;
-  background-color: #e1ecff;
+  background-color: #2c3e50;
 }
 
 .passive {
   padding: 0 50px;
-  background-color: #e1fff5;
+  background-color: #65676e;
 }
 
 #intro-text {
