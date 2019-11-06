@@ -47,9 +47,9 @@ export default {
     setInterval(() => {
       this.randomFact = RandomFacts.getrandomFact()
     }, 10000);
-     setTimeout(() => {
-    this.countPhrases()
-  }, 1000)
+    setTimeout(() => {
+      this.countPhrases()
+    }, 1000)
   },
   methods: {
     fetchData(){
@@ -114,8 +114,10 @@ html {
 }
 
 #random-fact {
+  position: fixed;
+  bottom: 0;
   margin: auto;
-  width: 60%;
+  width: 100%;
   padding: 10px;
 }
 
@@ -137,6 +139,7 @@ ul {
 nav li:hover {
   padding: 0 50px;
   background-color: #4775ff;
+  cursor: pointer;
 }
 
 .active {
