@@ -7,10 +7,10 @@
       <img v-if="question.letter" :src="question.url" alt="">
       <h3 v-if="!questionAnswered && question.phrase" >What is this phrase?</h3>
       <h3 v-if="!questionAnswered && question.letter" >What letter is this?</h3>
-      <div v-if="!questionAnswered" v-for="answer in answers">
-        <input type="radio" id="quizAnswer" :name="answer" :value="answer" v-model="quizAnswer">
-        <label  v-if="question.letter" for="quizAnswer"> {{answer.toUpperCase()}}</label>
-        <label v-if="question.phrase" for="quizAnswer"> {{answer}}</label>
+      <div v-if="!questionAnswered" v-for="(answer, index) in answers">
+        <input type="radio" :id="'quizAnswer' + index" :name="answer" :value="answer" v-model="quizAnswer">
+        <label  v-if="question.letter" :for="'quizAnswer' + index"> {{answer.toUpperCase()}}</label>
+        <label v-if="question.phrase" :for="'quizAnswer' + index"> {{answer}}</label>
       </div>
       <h1 v-if="questionAnswered">That is {{questionCorrect}}!</h1>
       <h4 v-if="questionAnswered && question.phrase">The correct answer is "{{question.phrase}}"</h4>
