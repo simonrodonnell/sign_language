@@ -19,7 +19,7 @@
 
     <button class="button" v-if="!questionAnswered && !quizCompleted" @click="submitAnswer" type="submit">Submit Answer</button>
     <button class="button" v-if="questionAnswered && !quizCompleted" @click="nextQuestion" type="submit">Next Question</button>
-    <button v-if="quizCompleted" @click="finishQuiz" type="submit">Restart Quiz</button>
+    <button class="button" v-if="quizCompleted" @click="finishQuiz" type="submit">Restart Quiz</button>
 
   </div>
 
