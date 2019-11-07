@@ -190,6 +190,7 @@ export default {
       this.numOfQuestions = 5
       this.quizAnswer = ""
       this.questionIndex = 0
+      this.quizScore = 0
     }
   }
 }
